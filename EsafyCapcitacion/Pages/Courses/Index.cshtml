@@ -1,0 +1,66 @@
+﻿@page
+@model EsafyCapcitacion.Pages.Courses.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="card">
+    <div class="card-header">
+        <h1>Listado de Cursos</h1><a asp-page="Create" class="btn btn-sm btn-success float-right"><i class="fa fa-plus"></i>Nuevo</a>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Course[0].CourseName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Course[0].CourseShortName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Course[0].Created)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Course[0].Modified)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Course)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CourseName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CourseShortName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Created)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Modified)
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <a class="btn btn-sm btn-warning" asp-page="./Edit" asp-route-cuid="@item.CourseId"><i class="fa fa-edit"></i></a>
+                                <a class="btn btn-sm btn-info" asp-page="./Details" asp-route-cuid="@item.CourseId"><i class="fa fa-eye"></i></a>
+                                <a class="btn btn-sm btn-danger" asp-page="./Delete" asp-route-cuid="@item.CourseId"><i class="fa fa-times"></i></a>
+                                <a class="btn btn-sm btn-dark" asp-page="/Tests/Index" asp-route-cuid="@item.CourseId"><i class="fa fa-tasks"></i></a>
+                            </div>
+
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+    
+
+
+    

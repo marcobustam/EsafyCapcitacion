@@ -1,0 +1,60 @@
+﻿@page
+@model EsafyCapcitacion.Pages.CapacitationPlans.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CapacitationPlan[0].CompanyId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CapacitationPlan[0].PlanName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CapacitationPlan[0].IsActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CapacitationPlan[0].Created)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CapacitationPlan[0].Modified)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.CapacitationPlan) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlanName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Created)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modified)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.CapacitationPlanId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.CapacitationPlanId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CapacitationPlanId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,48 @@
+﻿@page
+@model EsafyCapcitacion.Pages.Questions.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TestQuestion[0].QuestionTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TestQuestion[0].HeadingText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TestQuestion[0].SubHeadingText)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.TestQuestion) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HeadingText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubHeadingText)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-teid="@item.TestQuestionId">Edit</a> |
+                <a asp-page="./Details" asp-route-teid="@item.TestQuestionId">Details</a> |
+                <a asp-page="./Delete" asp-route-teid="@item.TestQuestionId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

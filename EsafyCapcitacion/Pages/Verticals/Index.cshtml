@@ -1,0 +1,36 @@
+﻿@page
+@model EsafyCapcitacion.Pages.Verticals.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Vertical[0].VerticalName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Vertical) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VerticalName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.VerticalId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.VerticalId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.VerticalId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

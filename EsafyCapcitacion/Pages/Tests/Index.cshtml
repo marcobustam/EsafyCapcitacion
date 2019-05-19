@@ -1,0 +1,46 @@
+﻿@page
+@model EsafyCapcitacion.Pages.Tests.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseTest[0].CourseId)
+            </th>
+            <th>@Html.DisplayNameFor(model => model.CourseTest[0].CourseTestName)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.CourseTest) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseTestName)
+            </td>
+            <td>
+                <div class="btn-group">
+                    <a class="btn btn-sm btn-warning" asp-page="./Edit" asp-route-teid="@item.CourseTestId"><i class="fa fa-edit"></i></a>
+                    <a class="btn btn-sm btn-info" asp-page="./Details" asp-route-teid="@item.CourseTestId"><i class="fa fa-eye"></i></a>
+                    <a class="btn btn-sm btn-danger" asp-page="./Delete" asp-route-teid="@item.CourseTestId"><i class="fa fa-times"></i></a>
+                    @*<a class="btn btn-sm btn-dark" asp-page="/Tests/Index" asp-route-cuid="@item.CourseId"><i class="fa fa-tasks"></i></a>*@
+                </div>
+                @*<a asp-page="./Edit" asp-route-teid="@item.CourseTestId">Edit</a> |
+                <a asp-page="./Details" asp-route-teid="@item.CourseTestId">Details</a> |
+                <a asp-page="./Delete" asp-route-teid="@item.CourseTestId">Delete</a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

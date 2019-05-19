@@ -1,0 +1,128 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">eSafy - Capacitación</h1>
+</div>
+<hr />
+@* ***************************************************************************** *@
+
+<div class="card card-body bg-secondary">
+
+
+
+    <!-- Page Content -->
+    <div class="container">
+        <!-- Content Row -->
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-sm-12 col-lg-4 col-xl-3 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title text-center text-info"><a class="" asp-page="" asp-route-emid=""><i class="fa fa-tasks fa-4x"></i></a></h2>
+                        @*<i class="fa fa-file fa-6x float-md-right text-white" style="margin-top:2%;"></i>
+                            <h2 class="card-title">Planificaciones</h2>*@
+                        <p class="card-text">Ver o modificar los planes de capacitación que tienes. @*Si no has creado ninguno, hazlo <a asp-page="/Planes/Prevencion/Planificaciones/Create" class="btn btn-sm btn-info"> </a>*@ </p>
+                    </div>
+                    <div class="card-footer">
+                        <a asp-page="////" asp-route-emid="" role="button" class="btn btn-primary" style="width:100%"><i class="fa fa-search"> </i>&nbsp;Planificaciones</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-6 col-sm-12 col-lg-4 col-xl-3 mb-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <h2 class="card-title text-center text-info"><a class="" asp-page="/Verticals/Index" asp-route-emid=""><i class="fa fa-sitemap fa-4x"></i></a></h2>
+                        <p class="card-text"></p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a asp-page="/Verticals/Index" asp-route-emid="" class="btn btn-primary" style="width:100%">Verticales</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-sm-12 col-lg-4 col-xl-3 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title text-center text-info"><a class="" asp-page="/Students/Index" asp-route-emid=""><i class="fa fa-id-badge fa-4x"></i></a></h2>
+                        <p class="card-text">Agregar trabajadores y asígnales cursos. </p>
+                    </div>
+                    <div class="card-footer">
+                        <a asp-page="/Students/Index" asp-route-emid="" role="button" class="btn btn-primary" style="width:100%"><i class="fa fa-plus"> </i>&nbsp;Agregar Estudiantes</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col-md-4 -->
+            <div class="col-xs-12 col-sm-12 col-md-6 col-sm-12 col-lg-4 col-xl-3 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title text-center text-info"><a class="" asp-page="//" asp-route-emid=""><i class="fa fa-file fa-4x"></i></a></h2>
+                        <p class="card-text">Administra tus archivos de manera segura. Te permite crear directorios por cada trabajador o por cada Faena.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a asp-page="//" asp-route-emid="" role="button" class="btn btn-primary" style="width:100%"><i class="fa fa-plus"> </i>&nbsp;Subir Archivos</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-sm-12 col-lg-4 col-xl-3 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title text-center text-info"><a class="" asp-page="/Companies/Index" asp-route-emid=""><i class="text-warning fa fa-industry fa-4x"></i></a></h2>
+                        <p class="card-text">Agrega las faenas donde se producen las inspecciones.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a asp-page="/Companies/Index" asp-route-emid="" role="button" class="btn btn-primary" style="width:100%"><i class="fa fa-plus"> </i>&nbsp;Gestionar Empresas</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-sm-12 col-lg-4 col-xl-3 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title text-center text-info"><a class="" asp-page="//" asp-route-emid=""><i class="fa fa-cogs fa-4x"></i></a></h2>
+                        <p class="card-text">Administra la aplicación. @*Si no has creado ninguno, hazlo <a asp-page="////" class="btn btn-sm btn-info"> </a>*@ </p>
+                    </div>
+                    <div class="card-footer">
+                        <a asp-page="//" asp-route-emid="" role="button" class="btn btn-primary" style="width:100%"><i class="fa fa-cog"> </i>&nbsp;Configuración</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-sm-12 col-lg-4 col-xl-3 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title text-center text-info">
+                            @*<a class="" asp-page="//" asp-route-emid="@Model.AppUser.EmpresaID"><i class="fa fa-search-plus fa-4x"></i></a>*@
+                            <a class="" asp-page="/Courses/Index"  ><i class="fa fa-book-open fa-4x"></i></a>
+                        </h2>
+                        <p class="card-text">Gestión de Cursos. @*Si no has creado ninguno, hazlo <a asp-page="////" class="btn btn-sm btn-info"> </a>*@ </p>
+                    </div>
+                    <div class="card-footer">
+                        @*<a asp-page="//" asp-route-emid="@Model.AppUser.EmpresaID" role="button" class="btn btn-primary" style="width:100%"><i class="fa fa-cog"> </i>&nbsp;Inspeccionar</a>*@
+                        <a asp-page="/Courses/Index"  role="button" class="btn btn-primary" style="width:100%"><i class="fa fa-search-plus"> </i>&nbsp; Cursos</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-sm-12 col-lg-4 col-xl-3 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title text-center text-info">
+                            <a class="" href=""><i class="fa fa-search-plus fa-4x"></i></a>
+                            @*<a class="" asp-page="" asp-route-emid="@Model.AppUser.EmpresaID"><i class="fa fa-search-plus fa-4x"></i></a>*@
+                        </h2>
+                        <p class="card-text">Inspección de comportamiento. @*Si no has creado ninguno, hazlo <a asp-page="////" class="btn btn-sm btn-info"> </a>*@ </p>
+                    </div>
+                    <div class="card-footer">
+                        @* <a asp-page="" asp-route-emid="@Model.AppUser.EmpresaID" role="button" class="btn btn-primary" style="width:100%"><i class="fa fa-cog"> </i>&nbsp;Inspeccionar</a>*@
+                        <a asp-page="/Exams/Index" role="button" class="btn btn-primary" style="width:100%"><i class="fa fa-search-plus"> </i>&nbsp;Crear Examen</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col-md-4 -->
+            <!-- /.col-md-4 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+    @* ***************************************************************************** *@
+</div>
