@@ -9,6 +9,10 @@
     {
       "library": "bootswatch@4.3.1",
       "destination": "wwwroot/lib/bootswatch/"
+    },
+    {
+      "library": "bootstrap-select@1.13.10",
+      "destination": "wwwroot/lib/bootstrap-select/"
     }
   ]
 }

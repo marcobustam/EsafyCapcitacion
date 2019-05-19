@@ -15,17 +15,20 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Examination.CourseId" class="control-label"></label>
-                <input asp-for="Examination.CourseId" class="form-control" />
+                @*<input asp-for="Examination.CourseId" class="form-control" />*@
+                <select class="custom-select form-control" asp-for="Examination.CourseId" asp-items="@ViewBag.Courses"></select>
                 <span asp-validation-for="Examination.CourseId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Examination.CourseTestId" class="control-label"></label>
-                <input asp-for="Examination.CourseTestId" class="form-control" />
+                @*<input asp-for="Examination.CourseTestId" class="form-control" />*@
+                <select class="custom-select form-control" asp-for="Examination.CourseTestId" asp-items="@ViewBag.Tests" ></select>
                 <span asp-validation-for="Examination.CourseTestId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Examination.StudentId" class="control-label"></label>
-                <input asp-for="Examination.StudentId" class="form-control" />
+                @*<input asp-for="Examination.StudentId" class="form-control" />*@
+                <select asp-for="Examination.StudentId" class="custom-select form-control" asp-items="@ViewBag.Students" ></select>
                 <span asp-validation-for="Examination.StudentId" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -34,7 +37,7 @@
         </form>
     </div>
 </div>
-
+@*  *@
 <div>
     <a asp-page="Index">Back to List</a>
 </div>
