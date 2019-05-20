@@ -8,7 +8,9 @@ namespace EsafyCapcitacion.Models
 {
     public class Inscription
     {
+        [Display(Name = "Id")]
         public int CourseId { get; set; }
+        [Display(Name = "Estudiante")]
         public int StudentId { get; set; }
         [Display(Name = "Creado")]
         public DateTime Created { get; set; }

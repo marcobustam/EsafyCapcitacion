@@ -8,6 +8,7 @@ namespace EsafyCapcitacion.Models
 {
     public class Person
     {
+        [Display(Name = "Id")]
         public int PersonId { get; set; }
         [Display(Name="Alias")]
         public string ShortName { get; set; }

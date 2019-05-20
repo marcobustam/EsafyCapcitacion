@@ -8,9 +8,11 @@ namespace EsafyCapcitacion.Models
 {
     public class Company
     {
+        [Display(Name = "Id")]
         public int CompanyId { get; set; }
+        [Display(Name = "Nombre")]
         public string CompanyName { get; set; }
-
+        [Display(Name = "Empleados")]
         public IList<Person> Employees { get; set; }
         [Display(Name = "Creado")]
         public DateTime Created { get; set; }

@@ -14,6 +14,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Examination[0].ExaminationId)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Examination[0].CourseId)
             </th>
             <th>
@@ -29,20 +32,24 @@
 @foreach (var item in Model.Examination) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.CourseId)
+                @Html.DisplayFor(modelItem => item.ExaminationId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CourseTestId)
+                @*@Html.DisplayFor(modelItem => item.CourseId)*@
+                @Html.DisplayFor(modelItem => Model.Courses.Where(cu=>cu.CourseId==item.CourseId).First().CourseName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.StudentId)
+                @Html.DisplayFor(modelItem => Model.CourseTests.Where(ct=>ct.CourseTestId== item.CourseTestId).First().CourseTestName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Students.Where(st=>st.PersonId == item.StudentId).First().ShortName)
             </td>
             <td>
                 <div class="btn-group">
-                    @*<a class="btn btn-sm btn-warning" asp-page="./Edit" asp-route-teid="@item.CourseId"><i class="fa fa-edit"></i></a>
-                    <a class="btn btn-sm btn-info" asp-page="./Details" asp-route-teid="@item.CourseTestId"><i class="fa fa-eye"></i></a>
-                    <a class="btn btn-sm btn-danger" asp-page="./Delete" asp-route-teid="@item.CourseTestId"><i class="fa fa-times"></i></a>*@
-                    @*<a class="btn btn-sm btn-dark" asp-page="/Tests/Index" asp-route-cuid="@item.CourseId"><i class="fa fa-tasks"></i></a>*@
+                    <a class="btn btn-sm btn-warning" asp-page="./Edit" asp-route-exid="@item.ExaminationId"><i class="fa fa-edit"></i></a>
+                    <a class="btn btn-sm btn-info" asp-page="./Details" asp-route-exid="@item.ExaminationId"><i class="fa fa-eye"></i></a>
+                    <a class="btn btn-sm btn-danger" asp-page="./Delete" asp-route-exid="@item.ExaminationId"><i class="fa fa-times"></i></a>
+                    <a class="btn btn-sm btn-dark" asp-page="/Tests/Index" asp-route-exid="@item.ExaminationId"><i class="fa fa-tasks"></i></a>
                 </div>
             </td>
         </tr>
