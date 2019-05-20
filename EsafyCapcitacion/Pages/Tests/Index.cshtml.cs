@@ -22,6 +22,7 @@ namespace EsafyCapcitacion.Pages.Tests
 
         public async Task OnGetAsync(int cuid)
         {
+            ViewData["CourseId"] = cuid;
             CourseTest = await _context.CourseTest.Where(ct=>ct.CourseTestId==cuid).ToListAsync();
         }
     }

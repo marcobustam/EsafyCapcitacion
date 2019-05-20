@@ -18,15 +18,18 @@ namespace EsafyCapcitacion.Pages.Tests
             _context = context;
         }
 
-        public IActionResult OnGet()
+        public IActionResult OnGet(int cuid)
         {
+            Course = _context.Course.Find(cuid);
+            ViewData["CourseId"] = cuid;
             return Page();
         }
 
         [BindProperty]
         public CourseTest CourseTest { get; set; }
-
-        public async Task<IActionResult> OnPostAsync()
+        [BindProperty]
+        public Course Course { get; set; }
+        public async Task<IActionResult> OnPostAsync(int cuid)
         {
             if (!ModelState.IsValid)
             {
@@ -36,7 +39,7 @@ namespace EsafyCapcitacion.Pages.Tests
             _context.CourseTest.Add(CourseTest);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Courses/Index", new { cuid });
         }
     }
 }

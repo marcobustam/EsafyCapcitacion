@@ -63,7 +63,7 @@ namespace EsafyCapcitacion.Pages.Tests
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Details", new { cuid = CourseTest.CourseId });
         }
 
         private bool CourseTestExists(int id)

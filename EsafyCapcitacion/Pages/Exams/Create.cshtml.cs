@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using EsafyCapcitacion.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace EsafyCapcitacion.Pages.Exams
 {
@@ -18,14 +19,26 @@ namespace EsafyCapcitacion.Pages.Exams
             _context = context;
         }
 
-        public IActionResult OnGet()
+        public async Task<IActionResult> OnGetAsync(int cuid, int teid)
         {
+            TestsList = await _context.CourseTest.ToListAsync();
+            CourseList = await _context.Course.ToListAsync();
+            ViewData["CourseTestId"] = teid;
+            ViewData["TestsList"] = cuid;
+            ViewData["Courses"] = new SelectList(_context.Course, "CourseId", "CourseName");
+            ViewData["Tests"] = new SelectList(_context.CourseTest, "CourseTestId", "CourseTestName");
+            ViewData["Students"] = new SelectList(_context.Student, "PersonId", "ShortName");
             return Page();
         }
 
         [BindProperty]
         public Examination Examination { get; set; }
-
+        [BindProperty]
+        public TestQuestion TestQuestion { get; set; }
+        [BindProperty]
+        public IList<CourseTest> TestsList { get; set; }
+        [BindProperty]
+        public IList<Course> CourseList { get; set; }
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
