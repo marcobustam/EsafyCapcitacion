@@ -13,6 +13,16 @@
     {
       "library": "bootstrap-select@1.13.10",
       "destination": "wwwroot/lib/bootstrap-select/"
+    },
+    {
+      "library": "datatables@1.10.19",
+      "destination": "wwwroot/lib/datatables/"
     }
-  ]
+  ,
+{
+  "provider": "cdnjs",
+  "library": "popper.js@1.15.0",
+  "destination": "wwwroot/lib/popper.js/"
+}
+]
 }

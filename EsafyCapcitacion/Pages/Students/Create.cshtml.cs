@@ -20,6 +20,7 @@ namespace EsafyCapcitacion.Pages.Students
 
         public IActionResult OnGet()
         {
+            ViewData["Companies"] = new SelectList(_context.Company, "CompanyId", "CompanyName");
             return Page();
         }
 

@@ -19,9 +19,11 @@ namespace EsafyCapcitacion.Pages.Students
         }
 
         public IList<Student> Student { get;set; }
-
+        [BindProperty]
+        public IList<Company> Companies { get; set; }
         public async Task OnGetAsync()
         {
+            Companies = await _context.Company.ToListAsync();
             Student = await _context.Student.ToListAsync();
         }
     }

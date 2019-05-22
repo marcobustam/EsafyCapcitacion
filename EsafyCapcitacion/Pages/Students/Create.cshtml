@@ -15,7 +15,8 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Student.CompanyId" class="control-label"></label>
-                <input asp-for="Student.CompanyId" class="form-control" />
+                <select class="selectpicker form-control" asp-for="Student.CompanyId" asp-items="@ViewBag.Companies"></select>
+                @*<input asp-for="Student.CompanyId" class="form-control" />*@
                 <span asp-validation-for="Student.CompanyId" class="text-danger"></span>
             </div>
             <div class="form-group">

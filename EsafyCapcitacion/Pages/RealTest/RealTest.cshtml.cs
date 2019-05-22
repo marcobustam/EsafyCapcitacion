@@ -30,7 +30,10 @@ namespace EsafyCapcitacion.Pages.RealTest
         {
             CourseTest = await _context.CourseTest.FindAsync(teid);
             Course = await _context.Course.FindAsync(cuid);
-            TestQuestion = await _context.TestQuestion.Where(op => op.TestQuestionId == quid).Include(cu=>cu.OptionList).FirstAsync();
+            CourseTest = await _context.CourseTest.Where(te => te.CourseTestId == teid).FirstAsync();
+            // TestQuestion = await _context.TestQuestion.Where(op => op.TestQuestionId == quid).Include(cu=>cu.OptionList).FirstAsync();
+            TestQuestion = await _context.TestQuestion.Where(op => op.TestQuestionId == quid).FirstAsync();
+
             OptionList = await _context.QuestionOption.Where(op => op.TestQuestionId == quid).ToListAsync();
             return Page();
         }

@@ -18,11 +18,27 @@ namespace EsafyCapcitacion.Pages.Companies
             _context = context;
         }
 
-        public IList<Company> Company { get;set; }
+        public IList<Company> CompanyList { get;set; }
 
         public async Task OnGetAsync()
         {
-            Company = await _context.Company.ToListAsync();
+            CompanyList = await _context.Company.ToListAsync();
+        }
+        [BindProperty]
+        public Company NewCompany { get; set; }
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+            NewCompany.Created = DateTime.Now;
+            NewCompany.Modified = DateTime.Now;
+            _context.Company.Add(NewCompany);
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("./Index");
         }
     }
 }
