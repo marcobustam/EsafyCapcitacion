@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using EsafyCapcitacion.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace EsafyCapcitacion.Models
 {
-    public class EsafyCapcitacionContext : DbContext
+    public class EsafyCapcitacionContext : IdentityDbContext
     {
         public EsafyCapcitacionContext (DbContextOptions<EsafyCapcitacionContext> options)
             : base(options)

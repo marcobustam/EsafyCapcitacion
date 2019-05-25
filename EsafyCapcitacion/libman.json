@@ -17,12 +17,42 @@
     {
       "library": "datatables@1.10.19",
       "destination": "wwwroot/lib/datatables/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "popper.js@1.15.0",
+      "destination": "wwwroot/lib/popper.js/"
+    },
+    {
+      "library": "prettify@r298",
+      "destination": "wwwroot/lib/prettify/"
+    },
+    {
+      "library": "tempusdominus-bootstrap-4@5.1.2",
+      "destination": "wwwroot/lib/tempusdominus-bootstrap-4/"
+    },
+    {
+      "library": "bootstrap-sweetalert@1.0.1",
+      "destination": "wwwroot/lib/bootstrap-sweetalert/"
+    },
+    {
+      "library": "angular-toastr@2.1.1",
+      "destination": "wwwroot/lib/angular-toastr/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "twitter-bootstrap@4.3.1",
+      "destination": "wwwroot/lib/twitter-bootstrap/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "fullcalendar@3.10.0",
+      "destination": "wwwroot/lib/fullcalendar/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "jstree@3.3.8",
+      "destination": "wwwroot/lib/jstree/"
     }
-  ,
-{
-  "provider": "cdnjs",
-  "library": "popper.js@1.15.0",
-  "destination": "wwwroot/lib/popper.js/"
-}
-]
+  ]
 }

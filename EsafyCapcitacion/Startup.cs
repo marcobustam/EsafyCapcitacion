@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using EsafyCapcitacion.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace EsafyCapcitacion
 {
@@ -33,10 +34,29 @@ namespace EsafyCapcitacion
             });
 
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            // ORIGINAL: services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddRazorPagesOptions(options =>
+            {
+                options.AllowAreas = true;
+                options.Conventions.AuthorizeAreaFolder("Identity", "/Account/Manage");
+                options.Conventions.AuthorizeAreaPage("Identity", "/Account/Logout");
+                options.Conventions.AuthorizeAreaPage("Identity", "/Account/Login");
+            });
 
             services.AddDbContext<EsafyCapcitacionContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("EsafyCapcitacionContext")));
+
+            // Identity para usuarios
+            //services.AddIdentity<ApplicationUser, IdentityRole>()
+            //    .AddEntityFrameworkStores<ApplicationDbContext>()
+            //    .AddDefaultUI()
+            //    .AddDefaultTokenProviders();
+            // Identity para usuarios
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<EsafyCapcitacionContext>()
+                .AddDefaultUI()
+                .AddDefaultTokenProviders();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,11 +70,13 @@ namespace EsafyCapcitacion
             {
                 app.UseExceptionHandler("/Error");
             }
-
+            
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseAuthentication();
 
             app.UseMvc();
+
         }
     }
 }
